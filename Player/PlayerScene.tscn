@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+
+[sub_resource type="PlaneMesh" id=3]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform vec4 tint : hint_color; // tint effect
+uniform float wave_speed = 3.0; // wave loop speed
+uniform float wave_freq = 10.0; // wave vertical freq
+uniform float wave_width = 1; // wave width 
+
+void fragment(){
+	vec2 scale_UV = SCREEN_UV;
+	vec2 wave_uv_offset;
+	wave_uv_offset.x = cos((TIME*wave_speed)+UV.x+UV.y*wave_freq*2.0)*wave_width*0.01;
+	ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV+wave_uv_offset).rgb*tint.rgb;
+	ALPHA = 0.75;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/tint = Color( 0.0509804, 0.741176, 0.901961, 1 )
+shader_param/wave_speed = 3.508
+shader_param/wave_freq = 12.424
+shader_param/wave_width = 0.985
+
+[node name="Player" type="KinematicBody" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="Collision" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+current = true
+far = 950.0
+
+[node name="waterview" type="MeshInstance" parent="Head/Camera"]
+transform = Transform( 1.80901, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.83491 )
+visible = false
+mesh = SubResource( 3 )
+material/0 = SubResource( 5 )
+
+[node name="aimer" type="RayCast" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.298978 )
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collide_with_areas = true
+collide_with_bodies = false
