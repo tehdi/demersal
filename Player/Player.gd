@@ -48,6 +48,8 @@ enum states {MOVING, UNDERWATER, INVENTORY,}
 
 var state = states.MOVING
 
+onready var advisor = $advisorScene
+
 ##################################################
 
 # Called when the node enters the scene tree

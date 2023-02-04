@@ -90,15 +90,8 @@ collide_with_bodies = false
 [node name="SpotLight" type="SpotLight" parent="Head"]
 light_color = Color( 0.376471, 0.827451, 0.721569, 1 )
 light_energy = 3.642
-spot_range = 26.5405
-spot_angle = 47.6499
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 191.0
-margin_top = 79.0
-margin_right = 736.0
-margin_bottom = 281.0
-text = "This is high res text"
+spot_range = 49.4072
+spot_angle = 36.5716
 
 [node name="watereffect" type="ColorRect" parent="."]
 visible = false
