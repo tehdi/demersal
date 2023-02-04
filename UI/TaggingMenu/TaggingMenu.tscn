@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/TaggingMenu/TagUI.tscn" type="PackedScene" id=7]
 
 [node name="TaggingMenu" type="Control"]
+process_priority = 1000
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
