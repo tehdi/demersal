@@ -22,6 +22,8 @@ var coyoteTime = 0
 var coyoteMax = 18
 var jumping = false
 
+var tabbed = false
+
 var lookedAt = false
 var lookPos2D = 0
 var lookAt = false
@@ -68,13 +70,19 @@ func change_state():
 	elif state == states.INVENTORY:
 		state = states.MOVING
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("tab"):
+		tabbed = !tabbed
+		if tabbed:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
 	move_axis.x = Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
 	move_axis.y = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	
-	if Input.is_action_just_pressed("move_jump"):
-		_is_jumping_input = true
 	
 #	if Input.is_action_pressed("move_sprint"):
 #		_is_sprinting_input = true
@@ -107,6 +115,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_axis = event.relative
 		camera_rotation()
+	if event is InputEventMouseButton:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if event is InputEventKey and event.pressed and event.scancode == KEY_ESCAPE:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func water(delta: float) -> void:
 	direction_input_water()
@@ -117,6 +129,8 @@ func water(delta: float) -> void:
 
 func walk(delta: float) -> void:
 	direction_input()
+	if Input.is_action_just_pressed("move_jump"):
+		_is_jumping_input = true
 	if is_on_floor():
 		jumping = false
 		coyoteTime = 0
@@ -171,12 +185,17 @@ func camera_rotation() -> void:
 		temp_rot.x = clamp(temp_rot.x, -90, 90)
 		head.rotation_degrees = temp_rot
 
-
 func direction_input_water() -> void:
 	direction = Vector3()
 	var aim: Basis = head.global_transform.basis
 	if move_axis.x >= 0.5:
 		direction = -aim.z
+	if move_axis.x <= -0.5:
+		direction = aim.z
+	if move_axis.y <= 0.5:
+		direction -= aim.x
+	if move_axis.y >= -0.5:
+		direction += aim.x
 	direction = direction.normalized()
 
 func direction_input() -> void:
