@@ -50,6 +50,8 @@ var state = states.MOVING
 
 var mural_in_range: Spatial = null
 
+onready var advisor = $advisorScene
+
 ##################################################
 
 # Called when the node enters the scene tree
