@@ -11,13 +11,13 @@ config_version=4
 [application]
 
 config/name="Demersal"
-run/main_scene="res://Levels/baseScene.tscn"
+run/main_scene="res://UI/TaggingMenu/TaggingMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 MuralInteraction="*res://Mural/mural_interaction.gd"
-Globals="*res://SiteTagging.tscn"
+SiteTagging="*res://SiteTagging.tscn"
 
 [display]
 

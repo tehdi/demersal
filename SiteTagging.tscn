@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://MuralTemplate.gd" type="Script" id=1]
 [ext_resource path="res://SiteTemplate.gd" type="Script" id=2]
+[ext_resource path="res://SiteTagging.gd" type="Script" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.379518, 1 )
@@ -34,6 +35,7 @@ fill = 1
 fill_from = Vector2( 0.516667, 0.520833 )
 
 [node name="SiteTagging" type="Node"]
+script = ExtResource( 3 )
 
 [node name="DefaultSites" type="Node" parent="."]
 
