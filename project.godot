@@ -14,9 +14,9 @@ config/name="Demersal"
 run/main_scene="res://Levels/testScene.tscn"
 config/icon="res://icon.png"
 
-[display]
+[autoload]
 
-window/size/fullscreen=true
+MuralInteraction="*res://Mural/mural_interaction.gd"
 
 [gui]
 
