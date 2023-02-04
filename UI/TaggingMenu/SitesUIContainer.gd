@@ -2,11 +2,14 @@ extends HBoxContainer
 
 export (PackedScene) var site_ui_prefab
 export (NodePath) var mural_container_node_path
+export (NodePath) var tag_container_node_path
 
 var mural_container
+var tag_container
 
 func _ready():
 	mural_container = get_node(mural_container_node_path)
+	tag_container = get_node(tag_container_node_path)
 
 
 func setup_sites_ui():
@@ -35,3 +38,5 @@ func on_site_selected(site_id):
 	print("Selected: " + site_id)
 	
 	mural_container.setup_murals_ui(site_id)
+	tag_container.setup_ui(site_id)
+	

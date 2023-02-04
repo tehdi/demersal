@@ -2,7 +2,10 @@ extends Node
 
 var sites_unlocked = {}
 var murals_unlocked = {}
-var tags_unlocked = {}
+var tags_unlocked = {
+	tag_1 = { display_name = "tag 1"},
+	tag_2 = { display_name = "tag 2"}
+}
 var tags_all = {
 	1: "tag_1", 2: "tag_2"
 }
@@ -33,8 +36,8 @@ func add_mural(to_site_id, mural_id, mural_name, mural_icon):
 func ui_add_tag(tag_id, to_site_id):
 	sites_unlocked[to_site_id].tags[tag_id] = true
 
-func ui_remove_tag(tag_id, from_mural_id):
-	murals_unlocked[from_mural_id].erase(tag_id)
+func ui_remove_tag(tag_id, from_site_id):
+	sites_unlocked[from_site_id].erase(tag_id)
 
 func unlock_tag(tag_id):
 	tags_unlocked[tag_id] = tags_all[tag_id]
