@@ -28,6 +28,6 @@ func setup_ui(site_id):
 		if tag in SiteTagging.sites_unlocked[site_id].tags:
 			toggle = SiteTagging.sites_unlocked[site_id].tags[tag]
 			
-		tag_instance.setup_tag(site_id, tag, all_tags[tag].display_name, toggle)
+		tag_instance.setup_tag(site_id, tag, all_tags[tag].name, toggle)
 		grid_container.add_child(tag_instance)
 		
