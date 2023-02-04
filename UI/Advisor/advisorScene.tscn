@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://advisorScene.gd" type="Script" id=1]
 [ext_resource path="res://UI/Font/Silver.ttf" type="DynamicFontData" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://Art/Advisor/greenSkin.tres" type="Material" id=4]
 [ext_resource path="res://Art/Advisor/mouth.obj" type="ArrayMesh" id=5]
 [ext_resource path="res://Art/Advisor/eye.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://UI/Advisor/voiceSound.gd" type="Script" id=7]
 [ext_resource path="res://Art/Advisor/eyebrow.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://Art/Advisor/redEye.tres" type="Material" id=9]
 [ext_resource path="res://Art/Advisor/blueEyebrow.tres" type="Material" id=10]
+[ext_resource path="res://SFX/voice1.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -957,7 +959,7 @@ skeleton = NodePath("../..")
 material/0 = ExtResource( 4 )
 
 [node name="mouth" type="MeshInstance" parent="Viewport/head"]
-transform = Transform( 0.999846, -0.017592, -1.19199e-07, 0.017592, 0.999845, -1.63154e-09, 1.19209e-07, -4.65661e-10, 1, 0, 0, 0 )
+transform = Transform( 0.999846, -0.017592, -1.19199e-07, 0.017592, 0.999845, -1.63154e-09, 1.19209e-07, -4.65666e-10, 1, 0, 0, 0 )
 mesh = ExtResource( 5 )
 material/0 = ExtResource( 4 )
 
@@ -972,12 +974,12 @@ mesh = ExtResource( 6 )
 material/0 = ExtResource( 9 )
 
 [node name="eyebrow_L" type="MeshInstance" parent="Viewport/head"]
-transform = Transform( 0.986857, 0.161604, -6.24333e-08, -0.161604, 0.986856, -1.24256e-08, 5.96047e-08, 2.23517e-08, 1, -0.644317, 0.350332, 1.26006 )
+transform = Transform( 0.986857, 0.161604, -6.24332e-08, -0.161604, 0.986856, -1.24256e-08, 5.96046e-08, 2.23517e-08, 1, -0.644317, 0.350332, 1.26006 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 10 )
 
 [node name="eyebrow_R" type="MeshInstance" parent="Viewport/head"]
-transform = Transform( 0.977508, -0.210898, -8.89674e-08, 0.210898, 0.977508, -1.15728e-08, 8.9407e-08, -7.45058e-09, 1, 0.630462, 0.350332, 1.26006 )
+transform = Transform( 0.977508, -0.210898, -8.89675e-08, 0.210898, 0.977508, -1.15728e-08, 8.94071e-08, -7.45063e-09, 1, 0.630462, 0.350332, 1.26006 )
 mesh = ExtResource( 8 )
 material/0 = ExtResource( 10 )
 
@@ -1061,4 +1063,17 @@ anims/closeMessage = SubResource( 12 )
 anims/closed = SubResource( 13 )
 anims/openMessage = SubResource( 14 )
 
+[node name="voiceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -15.0
+script = ExtResource( 7 )
+
+[node name="nextPage" type="Timer" parent="."]
+one_shot = true
+
+[node name="close" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="nextPage" to="." method="_on_nextPage_timeout"]
+[connection signal="timeout" from="close" to="." method="_on_close_timeout"]
