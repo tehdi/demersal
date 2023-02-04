@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Demersal"
-run/main_scene="res://Levels/testScene.tscn"
+run/main_scene="res://Levels/baseScene.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -24,6 +24,8 @@ window/size/width=1920
 window/size/height=1080
 window/size/test_width=1280
 window/size/test_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gui]
 

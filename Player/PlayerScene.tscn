@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://UI/Advisor/advisorScene.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -104,3 +105,5 @@ visible = false
 material = SubResource( 10 )
 margin_right = 1935.0
 margin_bottom = 1080.0
+
+[node name="advisorScene" parent="." instance=ExtResource( 2 )]
