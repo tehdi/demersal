@@ -31,23 +31,26 @@ func openMessage():
 func startSpeaking():
 	resetText()
 	speaking = true
+	$Viewport/mouthPlayer.play("speaking")
 	
 func _on_Timer_timeout():
 	if speaking:
 		if message.percent_visible <= 1:
+			var letters = "aAbBcCdDeEfFGgHhiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYZ"
+			if message.visible_characters < message.text.length() and message.text[message.visible_characters] in letters:
+				$voiceSound.playSound()
 			message.visible_characters += 1
+#			print(message.text[message.visible_characters])
 		else:
 			#When text is finished 
 			if messageIndex < messageGiven.size()-1:
-				#Advance to next textbox
-				messageIndex += 1
-				$Viewport/eyebrowPlayer.play(givenExpression[messageIndex])
-				resetText()
-				message.text = messageGiven[messageIndex]
+				$nextPage.start()
+				speaking = false
+				$Viewport/mouthPlayer.play("idle")
 			else:
 				#Close if this is the last message.
-				resetText()
-				$messageBoxAnim.play("closeMessage")
+				$close.start()
+				$Viewport/mouthPlayer.play("idle")
 				speaking = false
 				
 				
@@ -55,3 +58,18 @@ func _on_Timer_timeout():
 #			message.text = messageGiven[messageIndex]
 #			speaking = false
 #			$Viewport/mouthPlayer.play("idle")
+
+
+func _on_nextPage_timeout():
+	#Advance to next textbox
+	messageIndex += 1
+	$Viewport/eyebrowPlayer.play(givenExpression[messageIndex])
+	resetText()
+	message.text = messageGiven[messageIndex]
+	speaking = true
+	$Viewport/mouthPlayer.play("speaking")
+
+
+func _on_close_timeout():
+	resetText()
+	$messageBoxAnim.play("closeMessage")

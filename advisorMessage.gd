@@ -10,6 +10,8 @@ export(float) var timeAmount = 10
 export(Array, String, MULTILINE) var textboxes
 export(Array, String, "Neutral", "Angry", "Curious","Worried") var expressions
 
+var remain = false
+
 var rememberBody
 
 func _ready():
@@ -25,6 +27,7 @@ func sendMessage(bodyGet):
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
+		remain = true
 		if !explored and !timer_based:
 			sendMessage(body)
 			explored = true
@@ -34,5 +37,10 @@ func _on_Area_body_entered(body):
 
 func _on_Timer_timeout():
 	if !explored and timer_based:
-		sendMessage(rememberBody)
-		explored = true
+		if remain:
+			sendMessage(rememberBody)
+			explored = true
+
+
+func _on_Area_body_exited(body):
+	remain = false
