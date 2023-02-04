@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/caveGeometry.obj-3333a5e66f2bd088e9b7254ba1b54509.mesh"
+
+[deps]
+
+files=[ "res://.import/caveGeometry.obj-3333a5e66f2bd088e9b7254ba1b54509.mesh" ]
+
+source_file="res://Levels/caveGeometry.obj"
+dest_files=[ "res://.import/caveGeometry.obj-3333a5e66f2bd088e9b7254ba1b54509.mesh", "res://.import/caveGeometry.obj-3333a5e66f2bd088e9b7254ba1b54509.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -62,7 +62,7 @@ func toggle_water():
 		state = states.MOVING
 		
 func toggle_waterview():
-	$Head/Camera/waterview.visible = !$Head/Camera/waterview.visible
+	$watereffect.visible = !$watereffect.visible
 
 func change_state():
 	if state == states.MOVING:
