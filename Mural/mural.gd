@@ -3,8 +3,6 @@ extends Node
 export(String) var mural_id
 export(String) var site_id
 
-signal mural_discovered(mural_id)
-
 var discovered: bool = false
 
 func _on_Area_body_entered(body):
@@ -13,7 +11,7 @@ func _on_Area_body_entered(body):
 		if !discovered:
 			# prompt the player to push a button to interact with the mural, then:
 			discovered = true
-			emit_signal("mural_discovered", mural_id)
+			SiteTagging._on_mural_mural_discovered(mural_id)
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("player"):
