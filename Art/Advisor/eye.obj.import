@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/eye.obj-1bfeb61b4fbf1b154f50b782392231e6.mesh"
+
+[deps]
+
+files=[ "res://.import/eye.obj-1bfeb61b4fbf1b154f50b782392231e6.mesh" ]
+
+source_file="res://Art/Advisor/eye.obj"
+dest_files=[ "res://.import/eye.obj-1bfeb61b4fbf1b154f50b782392231e6.mesh", "res://.import/eye.obj-1bfeb61b4fbf1b154f50b782392231e6.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
