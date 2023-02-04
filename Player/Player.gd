@@ -70,6 +70,7 @@ func change_state():
 	elif state == states.INVENTORY:
 		state = states.MOVING
 
+#testing push
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
