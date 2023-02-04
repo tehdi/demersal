@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://MuralTemplate.gd" type="Script" id=1]
+[ext_resource path="res://SiteTemplate.gd" type="Script" id=2]
+[ext_resource path="res://SiteTagging.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.379518, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 0.785156, 0.785156, 1, 0.992188, 0, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+fill_from = Vector2( 0.15, 0.829167 )
+
+[sub_resource type="Gradient" id=8]
+
+[sub_resource type="GradientTexture2D" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.0481928, 0.141566, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 0.914063, 0, 1, 0, 1, 0.953125, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 5 )
+fill = 1
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.00301205, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0, 0.0859375, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=7]
+gradient = SubResource( 6 )
+fill = 1
+fill_from = Vector2( 0.516667, 0.520833 )
+
+[node name="SiteTagging" type="Node"]
+script = ExtResource( 3 )
+
+[node name="DefaultSites" type="Node" parent="."]
+
+[node name="Site1" type="Node" parent="DefaultSites"]
+script = ExtResource( 2 )
+site_id = "site1"
+display_name = "[SITE 1]"
+texture = SubResource( 2 )
+
+[node name="Mural_a" type="Node" parent="DefaultSites/Site1"]
+script = ExtResource( 1 )
+mural_id = "mural_a"
+display_name = "MURAL A"
+texture = SubResource( 9 )
+
+[node name="Site2" type="Node" parent="DefaultSites"]
+script = ExtResource( 2 )
+site_id = "site2"
+display_name = "[SITE 2]"
+texture = SubResource( 4 )
+
+[node name="Site3" type="Node" parent="DefaultSites"]
+script = ExtResource( 2 )
+site_id = "site3"
+display_name = "[SITE 3]"
+texture = SubResource( 7 )

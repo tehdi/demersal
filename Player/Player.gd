@@ -48,7 +48,7 @@ enum states {MOVING, UNDERWATER, INVENTORY,}
 
 var state = states.MOVING
 
-onready var advisor = $advisorScene
+var mural_in_range: Spatial = null
 
 ##################################################
 
@@ -81,7 +81,9 @@ func _process(_delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			
+	if Input.is_action_just_pressed("interact") and mural_in_range != null:
+		mural_in_range.discover()
+
 	move_axis.x = Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
 	move_axis.y = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
@@ -273,3 +275,9 @@ func sprint(delta: float) -> void:
 
 func can_sprint() -> bool:
 	return (sprint_enabled and _is_sprinting_input)
+
+func approach_mural(mural: Spatial) -> void:
+	mural_in_range = mural
+
+func leave_mural() -> void:
+	mural_in_range = null

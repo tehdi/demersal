@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/TaggingMenu/TaggingMenuSiteUI.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.108434, 0.61747, 0.855422, 1 )
@@ -18,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
+script = ExtResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -56,3 +59,5 @@ margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
+
+[connection signal="pressed" from="VBoxContainer/SiteButton" to="." method="_on_SiteButton_pressed"]

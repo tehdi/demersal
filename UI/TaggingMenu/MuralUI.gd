@@ -2,23 +2,18 @@ extends Control
 
 signal selected(mural_data)
 
+export (String) var mural_id
 export var mural_name = "[MURAL NAME]"
 export (Texture) var icon
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func setup_ui(mural_id, mural_name, icon):
+	self.mural_id = mural_id
+	self.mural_name = mural_name
+	self.icon = icon
+	
+	$Button.text = mural_name
+	$Button.icon = icon
 
 
 func _on_Button_pressed():
-	emit_signal("selected", {name: mural_name, icon: icon})
+	emit_signal("selected", mural_id)

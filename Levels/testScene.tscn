@@ -72,12 +72,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0696093, 1.3165, 0.229594 )
 [node name="water" parent="." instance=ExtResource( 3 )]
 transform = Transform( 10.7258, 0, 0, 0, 2.77818, 0, 0, 0, 10.7258, 0.260645, -0.480321, -33.9135 )
 
-[node name="mural_1" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 5 )
-mural_id = "one"
-site_id = "one"
-
-[node name="mural_2" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 2, 0 )
-mural_id = "two"
-site_id = "one"
+[node name="mural" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.72355, 2.83019 )
+mural_id = "mural_1"
+site_id = "site_1"
