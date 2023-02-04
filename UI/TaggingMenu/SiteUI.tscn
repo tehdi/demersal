@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.108434, 0.61747, 0.855422, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.804688, 0, 1, 1, 0.288391, 0.726664, 0.878906, 1, 0.898438, 1, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource( 1 )
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2( 0.5, 0.5 )
+repeat = 1
+
+[node name="SiteUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopFill" type="Control" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="SiteName" type="Label" parent="VBoxContainer"]
+margin_top = 91.0
+margin_right = 1920.0
+margin_bottom = 105.0
+text = "[SITE NAME]"
+align = 1
+
+[node name="SiteButton" type="Button" parent="VBoxContainer"]
+margin_top = 109.0
+margin_right = 1920.0
+margin_bottom = 988.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+icon = SubResource( 2 )
+icon_align = 1
+expand_icon = true
+
+[node name="BottomFill" type="Control" parent="VBoxContainer"]
+margin_top = 992.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
