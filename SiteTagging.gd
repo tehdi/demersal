@@ -61,3 +61,7 @@ func _on_mural_mural_discovered(mural_id):
 	murals_unlocked[mural_id] = mural
 	for tag_id in mural.unlockable_tag_ids:
 		unlock_tag(tag_id)
+
+func _on_site_site_discovered(site_id):
+	print("Discovering site {site_id}".format({"site_id": site_id}))
+	# TODO: "discover site" logic
