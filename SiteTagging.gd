@@ -112,3 +112,6 @@ func _on_mural_mural_discovered(mural_id):
 func _on_site_site_discovered(site_id):
 	print("Discovering site {site_id}".format({"site_id": site_id}))
 	sites_unlocked[site_id] = sites_all[site_id]
+
+func _on_correct_tag_assignments():
+	pass
