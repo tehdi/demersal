@@ -11,4 +11,11 @@ func _ready():
 	$AdvisorStartMessage.send_message()
 
 func nodes_re_ordered(nodes):
-	pass
+	var sites_order = SiteTagging.sites_order
+	var i = 0
+	for node in nodes:
+		if node.site_id != sites_order[i]:
+			return
+		i += 1 
+		
+	$AdvisorEndMessage.send_message()

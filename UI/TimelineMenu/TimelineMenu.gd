@@ -26,6 +26,7 @@ func setup_site(site_id, site):
 	
 	graph_node.setup_ui(site_id, site.display_name, site.icon)
 	$GraphEdit.add_child(graph_node)
+	graph_node.connect("on_node_moved", self, "_on_TimelineMenuUINode_on_node_moved")
 	
 func order_sites():
 	var graph_nodes = []
@@ -34,7 +35,6 @@ func order_sites():
 			continue
 		
 		graph_nodes.append(child)
-		child.connect("on_node_moved", self, "_on_TimelineMenuUINode_on_node_moved")
 	
 	graph_nodes.sort_custom(SortNodes, "compare_graph_nodes")
 	
@@ -47,6 +47,8 @@ func order_sites():
 		
 		graph_node.offset = translation
 		x = x
+	
+	$"Advisor Cut Scenes".nodes_re_ordered(graph_nodes)
 
 class SortNodes:
 	static func compare_graph_nodes(graph_node_a, graph_node_b):
