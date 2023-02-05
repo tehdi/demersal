@@ -347,7 +347,6 @@ material/0 = SubResource( 54 )
 
 [node name="CollisionShape" type="CollisionShape" parent="door/StaticBody"]
 shape = SubResource( 55 )
-disabled = true
 
 [node name="advisorMessage3" parent="." instance=ExtResource( 4 )]
 transform = Transform( 49.7213, 0, 0, 0, 49.7213, 0, 0, 0, 49.7213, -86.8654, -182.498, 0 )
