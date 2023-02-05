@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Font/Silver.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/TitleScreen/TitleScreen.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 160
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "TitleAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ButtonsLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="PresentsLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PresentsLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="PresentsLayer/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -119.0
+margin_top = -52.5
+margin_right = 119.0
+margin_bottom = 52.5
+text = "jaid'd games
+presents"
+align = 1
+valign = 1
+
+[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ButtonsLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="ButtonsLayer/ColorRect"]
+margin_right = 40.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 1 )
+text = "THE DEMERSAL"
+
+[node name="Button" type="Button" parent="ButtonsLayer/ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -169.0
+margin_top = -307.0
+margin_right = 194.0
+margin_bottom = -173.0
+custom_fonts/font = SubResource( 2 )
+text = "PLAY"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "TitleAnimation"
+anims/TitleAnimation = SubResource( 3 )
+
+[connection signal="pressed" from="ButtonsLayer/ColorRect/Button" to="." method="_on_Button_pressed"]
