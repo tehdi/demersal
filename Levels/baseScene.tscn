@@ -350,7 +350,7 @@ shape = SubResource( 55 )
 
 [node name="advisorMessage3" parent="." instance=ExtResource( 4 )]
 transform = Transform( 49.7213, 0, 0, 0, 49.7213, 0, 0, 0, 49.7213, -86.8654, -182.498, 0 )
-textboxes = [ "Well now you've actually made it. I'm impressed. I mean I knew you could do it but...", "Just you know, you weren't what I had in mind for the IDEAL explorer.", "You did get yourself trapped in the cavern below, and we don't know a way to rescue you.", "You're efforts will be remembered for about 3 or 4 years, so your death will not be in vain." ]
+textboxes = [ "Well now you've actually made it. I'm impressed. I mean I knew you could do it but...", "Just you know, you weren't what I had in mind for the IDEAL explorer.", "You did get yourself trapped in the cavern below, and we don't know a way to rescue you.", "Your efforts will be remembered for about 3 or 4 years, so your death will not be in vain." ]
 expressions = [ "Worried", "Angry", "Neutral", "Worried" ]
 
 [node name="water2" type="Spatial" parent="."]
