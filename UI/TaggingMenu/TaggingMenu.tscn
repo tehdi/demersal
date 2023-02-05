@@ -484,5 +484,5 @@ script = ExtResource( 5 )
 [node name="AdvisorStartMessage" type="Node" parent="Tagging Advisor Cut Scenes"]
 script = ExtResource( 2 )
 advisor_node_path = NodePath("../advisorScene")
-textboxes = [ "Wow, you made it. Ok, drag the sites around to indicate which came first", "Left is earliest in the timeline, right is latest" ]
-expressions = [ "Curious", "Neutral" ]
+textboxes = [ "Looks like you learned something...", "Sounds like something opened? Maybe investigate, please?" ]
+expressions = [ "Angry", "Worried" ]

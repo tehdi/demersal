@@ -76,11 +76,11 @@ var murals_all = {
 }
 
 func _ready():
-	add_test_unlocks()
+	#add_test_unlocks()
 	
-	sites_unlocked["site_a"].icon = $DefaultSites/Site1.texture
-	sites_unlocked["site_b"].icon = $DefaultSites/Site2.texture
-	sites_unlocked["site_c"].icon = $DefaultSites/Site3.texture
+	sites_all["site_a"].icon = $DefaultSites/Site1.texture
+	sites_all["site_b"].icon = $DefaultSites/Site2.texture
+	sites_all["site_c"].icon = $DefaultSites/Site3.texture
 
 func get_tags():
 	return tags_all
