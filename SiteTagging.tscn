@@ -41,24 +41,24 @@ script = ExtResource( 3 )
 
 [node name="Site1" type="Node" parent="DefaultSites"]
 script = ExtResource( 2 )
-site_id = "site1"
-display_name = "[SITE 1]"
+site_id = "site_a"
+display_name = "[SITE A]"
 texture = SubResource( 2 )
 
 [node name="Mural_a" type="Node" parent="DefaultSites/Site1"]
 script = ExtResource( 1 )
-mural_id = "mural_a"
-display_name = "MURAL A"
+mural_id = "mural_deity"
+display_name = "MURAL DEITY"
 texture = SubResource( 9 )
 
 [node name="Site2" type="Node" parent="DefaultSites"]
 script = ExtResource( 2 )
-site_id = "site2"
-display_name = "[SITE 2]"
+site_id = "site_b"
+display_name = "[SITE B]"
 texture = SubResource( 4 )
 
 [node name="Site3" type="Node" parent="DefaultSites"]
 script = ExtResource( 2 )
-site_id = "site3"
-display_name = "[SITE 3]"
+site_id = "site_c"
+display_name = "[SITE C]"
 texture = SubResource( 7 )

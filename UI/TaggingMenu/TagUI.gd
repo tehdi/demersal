@@ -12,4 +12,8 @@ func setup_tag(site_id, tag_id, tag, toggle):
 	self.tag_id = tag_id
 
 func _on_CheckBox_pressed():
-	SiteTagging.sites_unlocked[site_id].tags[tag_id] = $CheckBox.pressed
+	var selected_tag_ids = SiteTagging.sites_unlocked[site_id].selected_tag_ids
+	if $CheckBox.pressed and not tag_id in selected_tag_ids:
+		selected_tag_ids.append(tag_id)
+	elif not $CheckBox.pressed and tag_id in selected_tag_ids:
+		selected_tag_ids.erase(tag_id)
