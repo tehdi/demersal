@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/TimelineMenu/TimelineMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/TimelineMenu/TimelineMenuUINode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Advisor/advisorScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/TimelineMenu/AdvisorMenuMessage.gd" type="Script" id=4]
+[ext_resource path="res://UI/TimelineMenu/AdvisorTimelineCutScenes.gd" type="Script" id=5]
 
 [sub_resource type="Gradient" id=1]
 
@@ -24,3 +27,20 @@ anchor_bottom = 1.0
 custom_styles/bg = SubResource( 3 )
 snap_distance = 72
 minimap_enabled = false
+
+[node name="Advisor Cut Scenes" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="advisorScene" parent="Advisor Cut Scenes" instance=ExtResource( 3 )]
+
+[node name="AdvisorStartMessage" type="Node" parent="Advisor Cut Scenes"]
+script = ExtResource( 4 )
+advisor_node_path = NodePath("../advisorScene")
+textboxes = [ "Wow, you made it. Ok, drag the sites around to indicate which came first", "Left is earliest in the timeline, right is latest" ]
+expressions = [ "Curious", "Neutral" ]
+
+[node name="AdvisorEndMessage" type="Node" parent="Advisor Cut Scenes"]
+script = ExtResource( 4 )
+advisor_node_path = NodePath("../advisorScene")
+textboxes = [ "Alright looks like you got those right", "Good job. I'm out of here" ]
+expressions = [ "Worried", "Neutral" ]
