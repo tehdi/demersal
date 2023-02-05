@@ -8,11 +8,11 @@ var sites_order = ["site_b", "site_c", "site_a"]
 
 var sites_unlocked = {}
 var sites_all = {
-	"site_a": site_class.new("Site A", null,
+	"site_a": site_class.new("Site A", null, 3, "tag_monarch",
 		["tag_pillars", "tag_walls", "tag_houses", "tag_towers", "tag_swords", "tag_pottery"]),
-	"site_b": site_class.new("Site B", null,
+	"site_b": site_class.new("Site B", null, 1, "tag_deity",
 		["tag_huts", "tag_ziggurats", "tag_spears"]),
-	"site_c": site_class.new("Site C", null,
+	"site_c": site_class.new("Site C", null, 2, "tag_hero",
 		["tag_buildings", "tag_asphalt", "tag_roads", "tag_lamps", "tag_electricity"])
 }
 
@@ -68,6 +68,7 @@ var tags_all = {
 	"tag_schools": tag_class.new("Schools"),
 	"tag_engineering": tag_class.new("Engineering")
 }
+var special_tag_ids = ["tag_hero", "tag_monarch", "tag_deity"]
 
 var murals_unlocked = {}
 var murals_all = {
@@ -112,6 +113,18 @@ func _on_mural_mural_discovered(mural_id):
 func _on_site_site_discovered(site_id):
 	print("Discovering site {site_id}".format({"site_id": site_id}))
 	sites_unlocked[site_id] = sites_all[site_id]
+
+func has_enough_correct_tags() -> bool:
+	var all_sites_discovered = sites_unlocked.size() == sites_all.size()
+	var completed_sites = 0
+	if all_sites_discovered:
+		for site_key in sites_unlocked:
+			var site = sites_unlocked[site_key]
+			var has_correct_special = site.has_only_correct_special_tag(special_tag_ids)
+			var has_enough_other_tags = site.has_enough_other_tags()
+			if has_correct_special and has_enough_other_tags:
+				completed_sites += 1
+	return completed_sites == sites_all.size()
 
 func _on_correct_tag_assignments():
 	pass
