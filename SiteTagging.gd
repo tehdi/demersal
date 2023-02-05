@@ -6,7 +6,6 @@ var mural_class = load("res://MuralClass.gd")
 var sites_unlocked = {}
 
 var LOCKED_BY_DEFAULT = true
-var tags_unlocked = {}
 var tags_all = {
 	"tag_hero": tag_class.new("Hero", LOCKED_BY_DEFAULT),
 	"tag_monarch": tag_class.new("Monarch", LOCKED_BY_DEFAULT),
@@ -67,18 +66,14 @@ var murals_all = {
 func _ready():
 	add_test_unlocks()
 
-func get_unlocked_tags():
-	return tags_unlocked
+func get_tags():
+	return tags_all
 
 func add_test_unlocks():
 	for site_node in $DefaultSites.get_children():
 		add_site(site_node.site_id, site_node.display_name, site_node.texture)
 		for mural_node in site_node.get_children():
 			add_mural(site_node.site_id, mural_node.mural_id, mural_node.display_name, mural_node.texture)
-	for tag_key in tags_all:
-		var tag = tags_all[tag_key]
-		if not tag.locked:
-			tags_unlocked[tag_key] = tag
 
 func add_site(site_id, site_name, icon):
 	sites_unlocked[site_id] = { display_name = site_name, icon = icon, murals = {}, tags = {} }
@@ -95,9 +90,7 @@ func ui_remove_tag(tag_id, from_site_id):
 	sites_unlocked[from_site_id].erase(tag_id)
 
 func unlock_tag(tag_id):
-	var tag = tags_all[tag_id]
-	tag.locked = false
-	tags_unlocked[tag_id] = tag
+	tags_all[tag_id].locked = false
 
 func _on_mural_mural_discovered(mural_id):
 	print("Discovering mural {mural_id}".format({"mural_id": mural_id}))
