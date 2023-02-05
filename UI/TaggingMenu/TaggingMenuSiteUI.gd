@@ -8,8 +8,7 @@ export (String) var site_name
 func setup_ui(site_id, site_name, icon):
 	self.site_id = site_id
 	self.site_name = site_name
-	
-	$VBoxContainer/SiteName.text = site_name
+
 	$VBoxContainer/SiteButton.icon = icon
 
 
