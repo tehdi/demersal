@@ -61,6 +61,10 @@ func _ready() -> void:
 	
 	BackgroundMusic.play(1)
 
+func waterIn():
+	state = states.UNDERWATER
+	
+
 func toggle_water():
 	if state == states.MOVING:
 		state = states.UNDERWATER
