@@ -6,7 +6,8 @@ var site_class = load("res://SiteClass.gd")
 
 var sites_order = ["site_b", "site_c", "site_a"]
 
-var sites_unlocked = {
+var sites_unlocked = {}
+var sites_all = {
 	"site_a": site_class.new("Site A", null,
 		["tag_pillars", "tag_walls", "tag_houses", "tag_towers", "tag_swords", "tag_pottery"]),
 	"site_b": site_class.new("Site B", null,
