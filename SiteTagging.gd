@@ -4,7 +4,8 @@ var tag_class = load("res://TagClass.gd")
 var mural_class = load("res://MuralClass.gd")
 var site_class = load("res://SiteClass.gd")
 
-var sites_unlocked = {
+var sites_unlocked = {}
+var sites_all = {
 	"site_a": site_class.new("Site A", null,
 		["tag_pillars", "tag_walls", "tag_houses", "tag_towers", "tag_swords", "tag_pottery"]),
 	"site_b": site_class.new("Site B", null,
@@ -28,6 +29,7 @@ var tags_all = {
 	"tag_trade": tag_class.new("Trade Routes"),
 	"tag_games": tag_class.new("Games"),
 	"tag_industry": tag_class.new("Industry"),
+	"tag_lamps": tag_class.new("Lamps"),
 	"tag_spears": tag_class.new("Spears"),
 	"tag_holidays": tag_class.new("Public Holidays"),
 	"tag_pets": tag_class.new("Pets"),
@@ -40,15 +42,18 @@ var tags_all = {
 	"tag_ziggurats": tag_class.new("Ziggurats"),
 	"tag_pottery": tag_class.new("Pottery"),
 	"tag_towers": tag_class.new("Towers"),
+	"tag_electricity": tag_class.new("Electricity"),
 	"tag_statues": tag_class.new("Statues"),
 	"tag_buildings": tag_class.new("Buildings"),
 	"tag_glyphs": tag_class.new("Glyphs"),
+	"tag_asphalt": tag_class.new("Asphalt"),
 	"tag_farm_animals": tag_class.new("Farm Animals"),
 	"tag_theistic": tag_class.new("Theistic"),
 	"tag_walls": tag_class.new("Walls"),
 	"tag_mining": tag_class.new("Mining Equipment"),
 	"tag_bronze": tag_class.new("Bronze"),
 	"tag_wheels": tag_class.new("Wheels"),
+	"tag_roads": tag_class.new("Roads"),
 	"tag_military": tag_class.new("Military"),
 	"tag_swords": tag_class.new("Swords"),
 	"tag_horses": tag_class.new("Horses"),
@@ -111,4 +116,4 @@ func _on_mural_mural_discovered(mural_id):
 
 func _on_site_site_discovered(site_id):
 	print("Discovering site {site_id}".format({"site_id": site_id}))
-	# TODO: "discover site" logic
+	sites_unlocked[site_id] = sites_all[site_id]
