@@ -16,7 +16,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-MuralInteraction="*res://Mural/mural_interaction.gd"
 SiteTagging="*res://SiteTagging.tscn"
 TagMenuControl="*res://UI/TaggingMenu/TagMenuControl.tscn"
 
