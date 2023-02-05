@@ -1,6 +1,5 @@
 extends Node
 
-
 var tag_class = load("res://TagClass.gd")
 var mural_class = load("res://MuralClass.gd")
 
@@ -9,17 +8,54 @@ var sites_unlocked = {}
 var UNLOCKED_BY_DEFAULT = false
 var tags_unlocked = {}
 var tags_all = {
-	"tag_1_id": tag_class.new("tag_1_name", UNLOCKED_BY_DEFAULT),
-	"tag_2_id": tag_class.new("tag_2_name", UNLOCKED_BY_DEFAULT),
-	"tag_3_id": tag_class.new("tag_3_name", UNLOCKED_BY_DEFAULT),
-	"tag_4_id": tag_class.new("tag_4_name"),
-	"tag_5_id": tag_class.new("tag_5_name"),
+	"tag_music": tag_class.new("Music", UNLOCKED_BY_DEFAULT),
+	"tag_agriculture": tag_class.new("Agriculture", UNLOCKED_BY_DEFAULT),
+	"tag_flight": tag_class.new("Flight", UNLOCKED_BY_DEFAULT),
+	"tag_laws": tag_class.new("Laws", UNLOCKED_BY_DEFAULT),
+	"tag_cheese": tag_class.new("Cheese", UNLOCKED_BY_DEFAULT),
+	"tag_astronomy": tag_class.new("Astronomy", UNLOCKED_BY_DEFAULT),
+	"tag_literacy": tag_class.new("Literacy", UNLOCKED_BY_DEFAULT),
+	"tag_textiles": tag_class.new("Textiles", UNLOCKED_BY_DEFAULT),
+	"tag_trade": tag_class.new("Trade Routes", UNLOCKED_BY_DEFAULT),
+	"tag_games": tag_class.new("Games", UNLOCKED_BY_DEFAULT),
+	"tag_industry": tag_class.new("Industry", UNLOCKED_BY_DEFAULT),
+	"tag_holidays": tag_class.new("Public Holidays", UNLOCKED_BY_DEFAULT),
+	"tag_pets": tag_class.new("Pets", UNLOCKED_BY_DEFAULT),
+	"tag_arrowheads": tag_class.new("Arrowheads"),
+	"tag_wild_animals": tag_class.new("Wild Animals"),
+	"tag_skeletons": tag_class.new("Humanoid Skeletons"),
+	"tag_paganism": tag_class.new("Paganism"),
+	"tag_huts": tag_class.new("Huts"),
+	"tag_ziggurats": tag_class.new("Ziggurats"),
+	"tag_pottery": tag_class.new("Pottery"),
+	"tag_towers": tag_class.new("Towers"),
+	"tag_statues": tag_class.new("Statues"),
+	"tag_glyphs": tag_class.new("Glyphs"),
+	"tag_farm_animals": tag_class.new("Farm Animals"),
+	"tag_theistic": tag_class.new("Theistic"),
+	"tag_walls": tag_class.new("Walls"),
+	"tag_mining": tag_class.new("Mining Equipment"),
+	"tag_bronze": tag_class.new("Bronze"),
+	"tag_wheels": tag_class.new("Wheels"),
+	"tag_king": tag_class.new("??? King"),
+	"tag_military": tag_class.new("Military"),
+	"tag_horses": tag_class.new("Horses"),
+	"tag_iron": tag_class.new("Iron"),
+	"tag_shipbuilding": tag_class.new("Shipbuilding"),
+	"tag_steel": tag_class.new("Steel"),
+	"tag_temples": tag_class.new("Temples"),
+	"tag_currency": tag_class.new("Currency"),
+	"tag_books": tag_class.new("Books"),
+	"tag_schools": tag_class.new("Schools"),
+	"tag_engineering": tag_class.new("Engineering")
 }
 
 var murals_unlocked = {}
 var murals_all = {
 	# "id": name, icon, wanted tags, unlockable tags
-	"mural_1_id": mural_class.new("Mural 1", null, ["tag_1_id", "tag_2_id"], ["tag_3_id", "tag_4_id"])
+	"mural_1_id": mural_class.new("Mural 1", null,
+		["tag_arrowheads", "tag_wild_animals"], # wants
+		["tag_military", "tag_farm_animals"]) # unlocks
 }
 
 func _ready():
