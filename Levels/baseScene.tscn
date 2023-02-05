@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Water/water.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Textures/Black_Asphalt_05.png" type="Texture" id=2]
@@ -243,8 +243,14 @@ flip_faces = true
 [sub_resource type="SpatialMaterial" id=58]
 albedo_texture = ExtResource( 9 )
 
+[sub_resource type="ConcavePolygonShape" id=61]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
 [sub_resource type="SpatialMaterial" id=59]
 albedo_texture = ExtResource( 9 )
+
+[sub_resource type="ConcavePolygonShape" id=62]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [sub_resource type="BoxShape" id=60]
 
@@ -369,10 +375,20 @@ transform = Transform( 4.76069, 0, 0, 0, 29.0444, 0, 0, 0, 41.1103, -799.161, -9
 mesh = SubResource( 57 )
 material/0 = SubResource( 58 )
 
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 61 )
+
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 21.3174, 0, 0, 0, 29.0444, 0, 0, 0, 48.4232, -799.485, -130.264, 48.8435 )
 mesh = SubResource( 57 )
 material/0 = SubResource( 59 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
+shape = SubResource( 62 )
 
 [node name="endgame" type="Spatial" parent="."]
 transform = Transform( 17.4415, 0, 0, 0, 17.4415, 0, 0, 0, 17.4415, -804.889, -109.67, 49.3485 )
