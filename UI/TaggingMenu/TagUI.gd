@@ -17,3 +17,7 @@ func _on_CheckBox_pressed():
 		selected_tag_ids.append(tag_id)
 	elif not $CheckBox.pressed and tag_id in selected_tag_ids:
 		selected_tag_ids.erase(tag_id)
+	var sites_correctly_tagged = SiteTagging.has_enough_correct_tags()
+	
+	if sites_correctly_tagged:
+		get_tree().get_root().find_node("TaggingMenu").sites_correctly_tagged()
