@@ -89,8 +89,8 @@ func _process(_delta: float) -> void:
 	move_axis.x = Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
 	move_axis.y = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
-#	if Input.is_action_pressed("move_sprint"):
-#		_is_sprinting_input = true
+	if Input.is_action_pressed("move_sprint"):
+		_is_sprinting_input = true
 		
 #	if Input.is_action_just_pressed("mouse_left"):
 #		if lookedAt:
