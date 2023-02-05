@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Demersal - Track 4.ogg-147554c40964fe4c27f6c4f8604f7a73.oggstr"
+
+[deps]
+
+source_file="res://Music/Demersal - Track 4.ogg"
+dest_files=[ "res://.import/Demersal - Track 4.ogg-147554c40964fe4c27f6c4f8604f7a73.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

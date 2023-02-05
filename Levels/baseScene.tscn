@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Water/water.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Textures/Black_Asphalt_05.png" type="Texture" id=2]
@@ -60,6 +60,80 @@ fog_color = Color( 0.105882, 0.360784, 0.419608, 1 )
 fog_depth_end = 252.4
 fog_depth_curve = 3.13834
 glow_enabled = true
+
+[sub_resource type="Animation" id=51]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -45.5635, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -85.0908, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -10.1629, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "doorOpen"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -45.5635, -0.25, 0, 0.25, 0, -45.5635, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -85.0908, -0.25, 0, 0.25, 0, -85.0908, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -10.1629, -0.25, 0, 0.25, 0, 111.234, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="CubeMesh" id=53]
+
+[sub_resource type="SpatialMaterial" id=54]
+albedo_texture = ExtResource( 9 )
+
+[sub_resource type="ConcavePolygonShape" id=55]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [node name="baseScene" type="Spatial"]
 
@@ -130,8 +204,31 @@ textboxes = [ "You're still here huh?", "You do KNOW you can swim by using WASD 
 expressions = [ "Worried", "Angry" ]
 
 [node name="site" parent="." instance=ExtResource( 8 )]
-transform = Transform( 42.3847, 0, 0, 0, 22.4634, 0, 0, 0, 120.016, 58.8499, -42.7283, 98.0621 )
-site_id = "Site_A"
+transform = Transform( 119.067, 0, 0, 0, 63.1044, 0, 0, 0, 337.15, 58.8499, -44.8756, 122.932 )
+site_id = "site_a"
+
+[node name="site2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 119.067, 0, 0, 0, 63.1044, 0, 0, 0, 337.15, 16.8776, -44.8756, -406.778 )
+site_id = "site_b"
+
+[node name="site3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 119.067, 0, 0, 0, 63.1044, 0, 0, 0, 337.15, -249.986, -44.8756, -61.312 )
+site_id = "site_c"
+
+[node name="doorPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../door")
+anims/RESET = SubResource( 51 )
+anims/doorOpen = SubResource( 52 )
+
+[node name="door" type="MeshInstance" parent="."]
+transform = Transform( 72.775, 0, 0, 0, 3.41864, 0, 0, 0, 118.677, -45.5635, -85.0908, -10.1629 )
+mesh = SubResource( 53 )
+material/0 = SubResource( 54 )
+
+[node name="StaticBody" type="StaticBody" parent="door"]
+
+[node name="CollisionShape" type="CollisionShape" parent="door/StaticBody"]
+shape = SubResource( 55 )
 
 [connection signal="body_entered" from="water/swimmable" to="water" method="_on_swimmable_body_entered"]
 [connection signal="body_exited" from="water/swimmable" to="water" method="_on_swimmable_body_exited"]
