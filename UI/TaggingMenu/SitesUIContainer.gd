@@ -36,7 +36,4 @@ func add_site_ui(site_id, site):
 
 func on_site_selected(site_id):
 	print("Selected: " + site_id)
-	
-	mural_container.setup_murals_ui(site_id)
 	tag_container.setup_ui(site_id)
-	
