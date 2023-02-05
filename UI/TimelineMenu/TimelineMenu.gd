@@ -24,7 +24,7 @@ func _on_TimelineMenuUINode_on_node_moved(node):
 func setup_site(site_id, site):
 	var graph_node = graph_node_prefab.instance()
 	
-	graph_node.setup_ui(site_id, site.display_name, site.icon)
+	graph_node.setup_ui(site_id, "", site.icon)
 	$GraphEdit.add_child(graph_node)
 	graph_node.connect("on_node_moved", self, "_on_TimelineMenuUINode_on_node_moved")
 	
