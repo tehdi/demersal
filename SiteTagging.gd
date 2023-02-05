@@ -4,14 +4,17 @@ var tag_class = load("res://TagClass.gd")
 var mural_class = load("res://MuralClass.gd")
 var site_class = load("res://SiteClass.gd")
 
-var sites_order = ["site_b", "site_c", "site_a"]
+var sites_order = ["site_b", "site_a", "site_c"]
 
 var sites_unlocked = {}
 var sites_all = {
+	# pillars
 	"site_a": site_class.new("Site A", null, 3, "tag_monarch",
 		["tag_pillars", "tag_walls", "tag_houses", "tag_towers", "tag_swords", "tag_pottery"]),
+	# ziggurat
 	"site_b": site_class.new("Site B", null, 1, "tag_deity",
 		["tag_huts", "tag_ziggurats", "tag_spears"]),
+	# city
 	"site_c": site_class.new("Site C", null, 2, "tag_hero",
 		["tag_buildings", "tag_asphalt", "tag_roads", "tag_lamps", "tag_electricity"])
 }
@@ -30,10 +33,10 @@ var tags_all = {
 	"tag_games": tag_class.new("Games"),
 	"tag_lamps": tag_class.new("Lamps"),
 	"tag_spears": tag_class.new("Spears"),
-	"tag_holidays": tag_class.new("Public Holidays"),
+	"tag_holidays": tag_class.new("Holidays"),
 	"tag_pets": tag_class.new("Pets"),
 	"tag_arrowheads": tag_class.new("Arrowheads"),
-	"tag_skeletons": tag_class.new("Humanoid Skeletons"),
+	"tag_skeletons": tag_class.new("Skeletons"),
 	"tag_paganism": tag_class.new("Paganism"),
 	"tag_huts": tag_class.new("Huts"),
 	"tag_houses": tag_class.new("Houses"),

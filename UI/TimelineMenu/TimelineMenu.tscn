@@ -36,11 +36,11 @@ script = ExtResource( 5 )
 [node name="AdvisorStartMessage" type="Node" parent="Advisor Cut Scenes"]
 script = ExtResource( 4 )
 advisor_node_path = NodePath("../advisorScene")
-textboxes = [ "Wow, you made it. Ok, drag the sites around to indicate which came first", "Left is earliest in the timeline, right is latest" ]
+textboxes = [ "Wow, you made it. Ok, drag the sites around to indicate which came first", "Left is earliest in the timeline, right is latest." ]
 expressions = [ "Curious", "Neutral" ]
 
 [node name="AdvisorEndMessage" type="Node" parent="Advisor Cut Scenes"]
 script = ExtResource( 4 )
 advisor_node_path = NodePath("../advisorScene")
-textboxes = [ "Alright looks like you got those right", "Good job. I'm out of here" ]
+textboxes = [ "Alright looks like you got those right.", "Good job. I'm out of here." ]
 expressions = [ "Worried", "Neutral" ]
