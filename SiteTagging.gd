@@ -18,9 +18,9 @@ var sites_all = {
 
 var LOCKED_BY_DEFAULT = true
 var tags_all = {
-	"tag_hero": tag_class.new("Hero", LOCKED_BY_DEFAULT),
-	"tag_monarch": tag_class.new("Monarch", LOCKED_BY_DEFAULT),
-	"tag_deity": tag_class.new("Deity", LOCKED_BY_DEFAULT),
+	"tag_hero": tag_class.new("Hero"),#, LOCKED_BY_DEFAULT),
+	"tag_monarch": tag_class.new("Monarch"),#, LOCKED_BY_DEFAULT),
+	"tag_deity": tag_class.new("Deity"),#, LOCKED_BY_DEFAULT),
 	"tag_agriculture": tag_class.new("Agriculture"),
 	"tag_cheese": tag_class.new("Cheese"),
 	"tag_astronomy": tag_class.new("Astronomy"),
