@@ -4,6 +4,8 @@ var tag_class = load("res://TagClass.gd")
 var mural_class = load("res://MuralClass.gd")
 var site_class = load("res://SiteClass.gd")
 
+var sites_order = ["site_b", "site_c", "site_a"]
+
 var sites_unlocked = {
 	"site_a": site_class.new("Site A", null,
 		["tag_pillars", "tag_walls", "tag_houses", "tag_towers", "tag_swords", "tag_pottery"]),
