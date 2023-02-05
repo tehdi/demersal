@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/PlayerScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Water/water.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mural/MuralScene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sites/SiteScene.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -76,3 +77,6 @@ transform = Transform( 10.7258, 0, 0, 0, 2.77818, 0, 0, 0, 10.7258, 0.260645, -0
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.72355, 2.83019 )
 mural_id = "mural_1_id"
 site_id = "site_1_id"
+
+[node name="site" parent="." instance=ExtResource( 5 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0.323905, 1.19769, -6.399 )
