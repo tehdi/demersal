@@ -5,22 +5,23 @@ var mural_class = load("res://MuralClass.gd")
 
 var sites_unlocked = {}
 
-var UNLOCKED_BY_DEFAULT = false
+var LOCKED_BY_DEFAULT = true
 var tags_unlocked = {}
 var tags_all = {
-	"tag_music": tag_class.new("Music", UNLOCKED_BY_DEFAULT),
-	"tag_agriculture": tag_class.new("Agriculture", UNLOCKED_BY_DEFAULT),
-	"tag_flight": tag_class.new("Flight", UNLOCKED_BY_DEFAULT),
-	"tag_laws": tag_class.new("Laws", UNLOCKED_BY_DEFAULT),
-	"tag_cheese": tag_class.new("Cheese", UNLOCKED_BY_DEFAULT),
-	"tag_astronomy": tag_class.new("Astronomy", UNLOCKED_BY_DEFAULT),
-	"tag_literacy": tag_class.new("Literacy", UNLOCKED_BY_DEFAULT),
-	"tag_textiles": tag_class.new("Textiles", UNLOCKED_BY_DEFAULT),
-	"tag_trade": tag_class.new("Trade Routes", UNLOCKED_BY_DEFAULT),
-	"tag_games": tag_class.new("Games", UNLOCKED_BY_DEFAULT),
-	"tag_industry": tag_class.new("Industry", UNLOCKED_BY_DEFAULT),
-	"tag_holidays": tag_class.new("Public Holidays", UNLOCKED_BY_DEFAULT),
-	"tag_pets": tag_class.new("Pets", UNLOCKED_BY_DEFAULT),
+	"tag_hero": tag_class.new("Hero", LOCKED_BY_DEFAULT),
+	"tag_monarch": tag_class.new("Monarch", LOCKED_BY_DEFAULT),
+	"tag_deity": tag_class.new("Deity", LOCKED_BY_DEFAULT),
+	"tag_agriculture": tag_class.new("Agriculture"),
+	"tag_laws": tag_class.new("Laws"),
+	"tag_cheese": tag_class.new("Cheese"),
+	"tag_astronomy": tag_class.new("Astronomy"),
+	"tag_literacy": tag_class.new("Literacy"),
+	"tag_textiles": tag_class.new("Textiles"),
+	"tag_trade": tag_class.new("Trade Routes"),
+	"tag_games": tag_class.new("Games"),
+	"tag_industry": tag_class.new("Industry"),
+	"tag_holidays": tag_class.new("Public Holidays"),
+	"tag_pets": tag_class.new("Pets"),
 	"tag_arrowheads": tag_class.new("Arrowheads"),
 	"tag_wild_animals": tag_class.new("Wild Animals"),
 	"tag_skeletons": tag_class.new("Humanoid Skeletons"),
@@ -37,7 +38,6 @@ var tags_all = {
 	"tag_mining": tag_class.new("Mining Equipment"),
 	"tag_bronze": tag_class.new("Bronze"),
 	"tag_wheels": tag_class.new("Wheels"),
-	"tag_king": tag_class.new("??? King"),
 	"tag_military": tag_class.new("Military"),
 	"tag_horses": tag_class.new("Horses"),
 	"tag_iron": tag_class.new("Iron"),
@@ -53,9 +53,15 @@ var tags_all = {
 var murals_unlocked = {}
 var murals_all = {
 	# "id": name, icon, wanted tags, unlockable tags
-	"mural_1_id": mural_class.new("Mural 1", null,
-		["tag_arrowheads", "tag_wild_animals"], # wants
-		["tag_military", "tag_farm_animals"]) # unlocks
+	"mural_hero": mural_class.new("Hero", null,
+		[], # wants
+		["tag_monarch"]), # unlocks
+	"mural_monarch": mural_class.new("Monarch", null,
+		[], # wants
+		["tag_deity"]), # unlocks
+	"mural_deity": mural_class.new("Deity", null,
+		[], # wants
+		["tag_hero"]) # unlocks
 }
 
 func _ready():
@@ -89,7 +95,9 @@ func ui_remove_tag(tag_id, from_site_id):
 	sites_unlocked[from_site_id].erase(tag_id)
 
 func unlock_tag(tag_id):
-	tags_unlocked[tag_id] = tags_all[tag_id]
+	var tag = tags_all[tag_id]
+	tag.locked = false
+	tags_unlocked[tag_id] = tag
 
 func _on_mural_mural_discovered(mural_id):
 	print("Discovering mural {mural_id}".format({"mural_id": mural_id}))
