@@ -24,7 +24,7 @@ func nodes_re_ordered(nodes):
 	
 	var t = Timer.new()
 	t.set_wait_time(5)
-	t.set_one_show(true)
+	t.set_one_shot(true)
 	self.add_child(t)
 	t.start()
 	yield(t, "timeout")
