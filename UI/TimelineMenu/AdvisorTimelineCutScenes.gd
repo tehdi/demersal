@@ -9,6 +9,8 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AdvisorStartMessage.send_message()
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func nodes_re_ordered(nodes):
 	var sites_order = SiteTagging.sites_order
@@ -19,3 +21,12 @@ func nodes_re_ordered(nodes):
 		i += 1 
 		
 	$AdvisorEndMessage.send_message()
+	
+	var t = Timer.new()
+	t.set_wait_time(5)
+	t.set_one_show(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	
+	get_tree().change_scene("res://UI/TitleScreen/TitleScreen.tscn")
