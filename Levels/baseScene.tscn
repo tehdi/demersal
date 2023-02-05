@@ -398,6 +398,21 @@ script = ExtResource( 3 )
 [node name="CollisionShape" type="CollisionShape" parent="endgame/Area"]
 shape = SubResource( 60 )
 
+[node name="advisorMessage4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 59.5228, 0, 0, 0, 50.8791, 0, 0, 0, 122.187, -187.982, -38.3686, -57.5775 )
+textboxes = [ "These ruins seem very close to our own. Bet their cars don't even fly.", "We still never got around to getting a proper transit though." ]
+expressions = [ "Neutral", "Angry" ]
+
+[node name="advisorMessage5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 59.5228, 0, 0, 0, 50.8791, 0, 0, 0, 122.187, 13.7256, -38.3686, -390.995 )
+textboxes = [ "This place looks rather primitive, it reminds me of your reports. I mean, since you know so much about primitive cultures that is...", "I'm not trying to offend you, if I was you'd know." ]
+expressions = [ "Neutral", "Worried" ]
+
+[node name="advisorMessage6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 93.1434, 0, 0, 0, 50.8791, 0, 0, 0, 122.187, 67.4573, -38.3686, 188.095 )
+textboxes = [ "This civilization seems somewhat military based.. You would do well to take note of it.", "That was obvious to you right? Right?" ]
+expressions = [ "Neutral", "Worried" ]
+
 [connection signal="body_entered" from="water/swimmable" to="water" method="_on_swimmable_body_entered"]
 [connection signal="body_exited" from="water/swimmable" to="water" method="_on_swimmable_body_exited"]
 [connection signal="body_entered" from="water/viewwater" to="water" method="_on_viewwater_body_entered"]
