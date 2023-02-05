@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Water/water.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Textures/Black_Asphalt_05.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Player/PlayerScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/caveGeometry.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://Levels/Textures/Sand Riple 01.png" type="Texture" id=7]
+[ext_resource path="res://Sites/SiteScene.tscn" type="PackedScene" id=8]
 
 [sub_resource type="BoxShape" id=35]
 extents = Vector3( 1.79178, 0.842202, 1.6915 )
@@ -91,6 +92,9 @@ timer_based = true
 timeAmount = 15.0
 textboxes = [ "You're still here huh?", "You do KNOW you can swim by using WASD to move and mouse to look and steer right? Just making sure. I'm certain you're an expert at this.   " ]
 expressions = [ "Worried", "Angry" ]
+
+[node name="site" parent="." instance=ExtResource( 8 )]
+transform = Transform( 42.3847, 0, 0, 0, 22.4634, 0, 0, 0, 120.016, 58.8499, -42.7283, 98.0621 )
 
 [connection signal="body_entered" from="water/swimmable" to="water" method="_on_swimmable_body_entered"]
 [connection signal="body_exited" from="water/swimmable" to="water" method="_on_swimmable_body_exited"]
