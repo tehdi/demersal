@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=2]
+
+[sub_resource type="BitmapFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[resource]
+GraphNode/fonts/title_font = SubResource( 1 )
+GraphNode/styles/frame = SubResource( 2 )

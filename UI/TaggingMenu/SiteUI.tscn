@@ -30,22 +30,15 @@ size_flags_vertical = 3
 
 [node name="TopFill" type="Control" parent="VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 87.0
+margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="SiteName" type="Label" parent="VBoxContainer"]
-margin_top = 91.0
-margin_right = 1920.0
-margin_bottom = 105.0
-text = "[SITE NAME]"
-align = 1
-
 [node name="SiteButton" type="Button" parent="VBoxContainer"]
-margin_top = 109.0
+margin_top = 93.0
 margin_right = 1920.0
-margin_bottom = 988.0
+margin_bottom = 986.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 icon = SubResource( 2 )
@@ -53,7 +46,7 @@ icon_align = 1
 expand_icon = true
 
 [node name="BottomFill" type="Control" parent="VBoxContainer"]
-margin_top = 992.0
+margin_top = 990.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3

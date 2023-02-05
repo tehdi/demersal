@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/TimelineMenu/TimelineMuralUINode.gd" type="Script" id=1]
+[ext_resource path="res://UI/TimelineMenu/timeline_theme.tres" type="Theme" id=2]
+
+[sub_resource type="Gradient" id=4]
+
+[sub_resource type="GradientTexture2D" id=5]
+gradient = SubResource( 4 )
+fill_from = Vector2( 0.708333, 0.729167 )
+
+[node name="TimelineMenuUINode" type="GraphNode"]
+anchor_left = 0.527
+anchor_top = 0.506
+anchor_right = 0.527
+anchor_bottom = 0.506
+margin_left = -1011.84
+margin_top = -546.48
+margin_right = -651.84
+margin_bottom = -132.48
+mouse_filter = 1
+theme = ExtResource( 2 )
+title = "SITE 1"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 360.0
+margin_bottom = 414.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture = SubResource( 5 )
+expand = true
+
+[connection signal="dragged" from="." to="." method="_on_GraphNode_dragged"]
