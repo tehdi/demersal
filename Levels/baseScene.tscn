@@ -1,8 +1,7 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Water/water.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Textures/Black_Asphalt_05.png" type="Texture" id=2]
-[ext_resource path="res://Music/Demersal - Track 1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://UI/Advisor/advisorMessage.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/PlayerScene.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/caveGeometry.obj" type="ArrayMesh" id=6]
@@ -187,10 +186,6 @@ environment = SubResource( 39 )
 transform = Transform( -0.809009, -0.574006, -0.126579, -0.358748, 0.31159, 0.879893, -0.465623, 0.757251, -0.458002, 0, 0, 0 )
 light_color = Color( 0.458824, 0.501961, 0.654902, 1 )
 
-[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
-
 [node name="advisorMessage" parent="." instance=ExtResource( 4 )]
 transform = Transform( 19.7929, 0, 0, 0, 23.2063, 0, 0, 0, 13.1227, -50.1129, 124.57, 21.5673 )
 textboxes = [ "Looks like some rocks collapsed behind you. Oh well, it says you're close to the ruins so might as well gather some data.", "You might perish here but it's for the good of archaeology," ]
@@ -206,14 +201,17 @@ expressions = [ "Worried", "Angry" ]
 [node name="site" parent="." instance=ExtResource( 8 )]
 transform = Transform( 119.067, 0, 0, 0, 63.1044, 0, 0, 0, 337.15, 58.8499, -44.8756, 122.932 )
 site_id = "site_a"
+track_index = 2
 
 [node name="site2" parent="." instance=ExtResource( 8 )]
 transform = Transform( 119.067, 0, 0, 0, 63.1044, 0, 0, 0, 337.15, 16.8776, -44.8756, -406.778 )
 site_id = "site_b"
+track_index = 3
 
 [node name="site3" parent="." instance=ExtResource( 8 )]
 transform = Transform( 119.067, 0, 0, 0, 63.1044, 0, 0, 0, 337.15, -249.986, -44.8756, -61.312 )
 site_id = "site_c"
+track_index = 5
 
 [node name="doorPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../door")

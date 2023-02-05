@@ -58,6 +58,8 @@ onready var advisor = $advisorScene
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	cam.fov = FOV
+	
+	BackgroundMusic.play(1)
 
 func toggle_water():
 	if state == states.MOVING:
