@@ -62,6 +62,7 @@ shader_param/wave_width = 0.546
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 1 )
+jump_height = 20
 
 [node name="Collision" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
