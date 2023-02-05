@@ -14,4 +14,5 @@ func _on_Area_body_entered(body):
 			SiteTagging._on_site_site_discovered(site_id)
 
 func _on_Area_body_exited(body):
-	pass
+	if body.is_in_group("player"):
+		BackgroundMusic.crossfade(1)
