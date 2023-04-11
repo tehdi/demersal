@@ -14,7 +14,7 @@ func _init(name: String, icon: Texture,
 	self.wanted_tag_ids = wanted_tag_ids
 	self.selected_tag_ids = []
 	# disable this to make the game easier (only have to select special tag)
-	#self.tag_count_threshold = tag_count_threshold
+	self.tag_count_threshold = tag_count_threshold
 
 func has_only_correct_special_tag(all_special_tags: Array) -> bool:
 	for tag_id in selected_tag_ids:
